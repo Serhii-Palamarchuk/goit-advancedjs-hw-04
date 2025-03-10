@@ -92,6 +92,22 @@ button:hover {
   animation: spin 1s linear infinite;
 }
 
+#load-more {
+  display: none;
+  margin: 20px auto;
+  padding: 12px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#load-more:hover {
+  background-color: #218838;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
