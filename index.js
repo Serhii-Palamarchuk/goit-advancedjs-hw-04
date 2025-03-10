@@ -1,12 +1,12 @@
-import{a as c,S as u,i}from"./assets/vendor-B4AqCRBk.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))r(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const a of o.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&r(a)}).observe(document,{childList:!0,subtree:!0});function n(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(e){if(e.ep)return;e.ep=!0;const o=n(e);fetch(e.href,o)}})();const d="49211573-98fed09fb52bd65ccaa252580";c.defaults.baseURL="https://pixabay.com/api/";async function f(s){try{return(await c.get("",{params:{key:d,q:s,image_type:"photo",orientation:"horizontal",safesearch:!0}})).data}catch(t){return console.error("Error fetching images:",t),{hits:[]}}}function p(s){const t=document.querySelector(".gallery");t.innerHTML=s.map(r=>`
-        <a href="${r.largeImageURL}" class="gallery-item">
-            <img src="${r.webformatURL}" alt="${r.tags}" loading="lazy"/>
+import{a as c,S as u,i}from"./assets/vendor-B4AqCRBk.js";(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))e(r);new MutationObserver(r=>{for(const t of r)if(t.type==="childList")for(const a of t.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&e(a)}).observe(document,{childList:!0,subtree:!0});function n(r){const t={};return r.integrity&&(t.integrity=r.integrity),r.referrerPolicy&&(t.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?t.credentials="include":r.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function e(r){if(r.ep)return;r.ep=!0;const t=n(r);fetch(r.href,t)}})();const d="49211573-98fed09fb52bd65ccaa252580";c.defaults.baseURL="https://pixabay.com/api/";async function f(s,o=1,n=3){try{return(await c.get("",{params:{key:d,q:s,image_type:"photo",orientation:"horizontal",safesearch:!0,page:o,per_page:n}})).data}catch(e){return console.error("Error fetching images:",e),{hits:[]}}}function p(s){const o=document.querySelector(".gallery");o.innerHTML=s.map(e=>`
+        <a href="${e.largeImageURL}" class="gallery-item">
+            <img src="${e.webformatURL}" alt="${e.tags}" loading="lazy"/>
             <div class="info">
-                <p>👍 ${r.likes}</p>
-                <p>👁 ${r.views}</p>
-                <p>💬 ${r.comments}</p>
-                <p>⬇️ ${r.downloads}</p>
+                <p>👍 ${e.likes}</p>
+                <p>👁 ${e.views}</p>
+                <p>💬 ${e.comments}</p>
+                <p>⬇️ ${e.downloads}</p>
             </div>
         </a>
-    `).join(""),new u(".gallery a").refresh()}const y=document.querySelector("#search-form"),m=document.querySelector(".gallery"),l=document.querySelector(".loader");y.addEventListener("submit",async s=>{s.preventDefault();const t=s.target.search.value.trim();if(!t){i.error({title:"Error",message:"Please enter a search query!"});return}l.style.display="block",m.innerHTML="",await new Promise(r=>setTimeout(r,350));const n=await f(t);l.style.display="none",n.hits.length===0?i.warning({title:"No Results",message:"Sorry, no images found!",position:"center"}):p(n.hits)});
+    `).join(""),new u(".gallery a").refresh()}const y=document.querySelector("#search-form"),m=document.querySelector(".gallery"),l=document.querySelector(".loader");y.addEventListener("submit",async s=>{s.preventDefault();const o=s.target.search.value.trim();if(!o){i.error({title:"Error",message:"Please enter a search query!"});return}l.style.display="block",m.innerHTML="",await new Promise(e=>setTimeout(e,350));const n=await f(o);l.style.display="none",n.hits.length===0?i.warning({title:"No Results",message:"Sorry, no images found!",position:"center"}):p(n.hits)});
 //# sourceMappingURL=index.js.map
